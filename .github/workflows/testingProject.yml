@@ -1,0 +1,20 @@
+name: actionsProject
+
+on: push
+
+jobs:
+ deploy:
+   runs-on: ubuntu-latest
+   steps:
+    - name: checkout code
+      uses: actions/checkout@v4
+    - name: insstall dependencies
+      run: npm ci
+    - name: lint
+      run: npm run lint
+    - name: test code
+      run: npm run test
+    - name: build code
+      run: npm run build
+    - name: deploy code
+      run: echo "code deployed"
